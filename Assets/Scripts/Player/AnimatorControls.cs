@@ -6,6 +6,7 @@ public class AnimatorControls : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _itemInfoText;
     [SerializeField] private LayerMask itemLayer;
+    [SerializeField] private List<ItemNotification> itemNotifications;
 
     private inventoryManager inventoryManager;
     public GameObject inventoryMenu;
@@ -21,12 +22,13 @@ public class AnimatorControls : MonoBehaviour
         {
             Debug.Log("inventoryManager initialized: " + (inventoryManager != null));
         }
-    }
 
+    }
     private void Update()
     {
         HandleInventoryToggle();
         RaycastForItem();
+
     }
 
     void RaycastForItem()
@@ -52,15 +54,19 @@ public class AnimatorControls : MonoBehaviour
                         Debug.Log("Item picked up: " + item.itemName);
                         inventoryManager.AddItem(item.itemName, item.quantity, item.sprite, item.itemDescription);
 
-                        if (item.itemNotification != null)
+                        /*foreach (var notification in itemNotifications)
                         {
-                            item.itemNotification.ShowNotification(item);
-                        }
-                        else
-                        {
-                            Debug.LogError("Item notification is null for item: " + item.itemName);
-                        }
+                            if (notification != null)
+                            {
+                                notification.ShowNotification(item);
 
+                            }
+                            else
+                            {
+                                Debug.LogError("Item notification is null.");
+                            }
+                        }
+                        */
                         Destroy(hit.collider.gameObject);
                     }
                 }
@@ -71,7 +77,6 @@ public class AnimatorControls : MonoBehaviour
             _itemInfoText.text = "";
         }
     }
-
     void HandleInventoryToggle()
     {
         if (Input.GetButtonDown("Inventory"))
