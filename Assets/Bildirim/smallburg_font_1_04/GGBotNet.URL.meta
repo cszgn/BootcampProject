@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Bildirim/smallburg_font_1_04/GGBotNet.URL.meta
 guid: 3865835c30c1bf441a1eb1dc5ea6f1ed
+========
+guid: 33ada9cc0ed37cb4eb604e2b4cefeaf9
+folderAsset: yes
+>>>>>>>> 10a62430b4a22c64483b2e50f762ecf63cfc7179:Assets/Scripts/inventory/itemS/Materials.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

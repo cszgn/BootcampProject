@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Bildirim/smallburg_font_1_04/Web Open Font Format (.woff)/smallburg-Italic.woff2.meta
 guid: e0f7cdd12d9a9be498588b0afc3eb0cb
+========
+guid: 9be19510c879f164c83990971e4b421b
+folderAsset: yes
+>>>>>>>> 10a62430b4a22c64483b2e50f762ecf63cfc7179:Assets/Scripts/inventory/itemS/Materials/Materials.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
