@@ -18,6 +18,9 @@ public class ItemNotification : MonoBehaviour
 
     public float displayDuration = 2f; // Bildirimin görünme süresi
 
+    private float _notificationTimer = 0f;
+    private bool _isNotificationActive = false;
+
     private void Start()
     {
         _notePanel.SetActive(false);
@@ -26,6 +29,18 @@ public class ItemNotification : MonoBehaviour
 
         // Ýkinci paneli de baþlangýçta gizleyin
         _notePanel2.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (_isNotificationActive)
+        {
+            _notificationTimer -= Time.deltaTime;
+            if (_notificationTimer <= 0)
+            {
+                HideNotification();
+            }
+        }
     }
 
     public void ShowNotification(CollectibleItem item)
@@ -48,8 +63,9 @@ public class ItemNotification : MonoBehaviour
 
         _notePanel2.SetActive(true);
 
-        // Bildirimin belirli bir süre sonra gizlenmesini saðla
-        Invoke("HideNotification", displayDuration); // Süreyi `displayDuration` olarak ayarla
+        // Zamanlayýcýyý baþlat
+        _notificationTimer = displayDuration;
+        _isNotificationActive = true;
     }
 
     private void HideNotification()
@@ -63,5 +79,7 @@ public class ItemNotification : MonoBehaviour
 
         // Ýkinci paneli gizle
         _notePanel2.SetActive(false);
+
+        _isNotificationActive = false;
     }
 }

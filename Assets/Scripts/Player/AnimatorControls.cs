@@ -6,7 +6,6 @@ public class AnimatorControls : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _itemInfoText;
     [SerializeField] private LayerMask itemLayer;
-    [SerializeField] private List<ItemNotification> itemNotifications;
 
     private inventoryManager inventoryManager;
     public GameObject inventoryMenu;
@@ -21,11 +20,6 @@ public class AnimatorControls : MonoBehaviour
         else
         {
             Debug.Log("inventoryManager initialized: " + (inventoryManager != null));
-        }
-
-        if (itemNotifications == null || itemNotifications.Count == 0)
-        {
-            Debug.LogError("Item notifications list is not assigned or empty.");
         }
     }
 
@@ -58,16 +52,13 @@ public class AnimatorControls : MonoBehaviour
                         Debug.Log("Item picked up: " + item.itemName);
                         inventoryManager.AddItem(item.itemName, item.quantity, item.sprite, item.itemDescription);
 
-                        foreach (var notification in itemNotifications)
+                        if (item.itemNotification != null)
                         {
-                            if (notification != null)
-                            {
-                                notification.ShowNotification(item);
-                            }
-                            else
-                            {
-                                Debug.LogError("Item notification is null.");
-                            }
+                            item.itemNotification.ShowNotification(item);
+                        }
+                        else
+                        {
+                            Debug.LogError("Item notification is null for item: " + item.itemName);
                         }
 
                         Destroy(hit.collider.gameObject);
