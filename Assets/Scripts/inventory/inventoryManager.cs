@@ -8,7 +8,7 @@ public class inventoryManager : MonoBehaviour
     private bool menuActivated;
     public itemSlot[] itemSlots;
 
-    private int currentSelectedIndex = -1;
+    private int currentSelectedIndex = 0;
 
     void Start()
     {

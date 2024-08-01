@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
+
 public class ItemNotification : MonoBehaviour
 {
     [SerializeField]

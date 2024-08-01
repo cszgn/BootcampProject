@@ -23,16 +23,12 @@ public class AnimatorControls : MonoBehaviour
             Debug.Log("inventoryManager initialized: " + (inventoryManager != null));
         }
 
-        if (itemNotifications == null || itemNotifications.Count == 0)
-        {
-            Debug.LogError("Item notifications list is not assigned or empty.");
-        }
     }
-
     private void Update()
     {
         HandleInventoryToggle();
         RaycastForItem();
+
     }
 
     void RaycastForItem()
@@ -58,18 +54,19 @@ public class AnimatorControls : MonoBehaviour
                         Debug.Log("Item picked up: " + item.itemName);
                         inventoryManager.AddItem(item.itemName, item.quantity, item.sprite, item.itemDescription);
 
-                        foreach (var notification in itemNotifications)
+                        /*foreach (var notification in itemNotifications)
                         {
                             if (notification != null)
                             {
                                 notification.ShowNotification(item);
+
                             }
                             else
                             {
                                 Debug.LogError("Item notification is null.");
                             }
                         }
-
+                        */
                         Destroy(hit.collider.gameObject);
                     }
                 }
@@ -80,7 +77,6 @@ public class AnimatorControls : MonoBehaviour
             _itemInfoText.text = "";
         }
     }
-
     void HandleInventoryToggle()
     {
         if (Input.GetButtonDown("Inventory"))
