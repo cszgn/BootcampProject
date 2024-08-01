@@ -1,6 +1,6 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
@@ -8,19 +8,6 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public static bool GameIsPaused = false;
 
-    void Start()
-    {
-        // Canvas ve Event System kontrolü
-        if (FindObjectOfType<Canvas>() == null)
-        {
-            Debug.LogError("Canvas GameObject bulunamadý!");
-        }
-
-        if (FindObjectOfType<EventSystem>() == null)
-        {
-            Debug.LogError("Event System GameObject bulunamadý!");
-        }
-    }
 
     void Update()
     {
