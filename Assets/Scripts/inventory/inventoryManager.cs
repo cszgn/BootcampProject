@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +10,6 @@ public class inventoryManager : MonoBehaviour
 
     private int currentSelectedIndex = 0;
 
-    // Start is called before the first frame update
     void Start()
     {
         if (itemSlots.Length > 0)
@@ -20,7 +18,6 @@ public class inventoryManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("Inventory") && menuActivated)
@@ -53,19 +50,14 @@ public class inventoryManager : MonoBehaviour
     {
         if (itemSlots.Length == 0) return;
 
-        // Deselect current slot
         itemSlots[currentSelectedIndex].DeselectItem();
-
-        // Update the index
         currentSelectedIndex = (currentSelectedIndex + direction + itemSlots.Length) % itemSlots.Length;
-
-        // Select the new slot
         itemSlots[currentSelectedIndex].SelectItem();
     }
 
     public void AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription)
     {
-        for (int i = 0; i < itemSlots.Length; i++) 
+        for (int i = 0; i < itemSlots.Length; i++)
         {
             if (!itemSlots[i].isFull)
             {
