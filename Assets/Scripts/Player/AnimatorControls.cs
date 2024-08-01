@@ -13,7 +13,7 @@ namespace Player
 
         void Start()
         {
-            //inventoryManager = GameObject.Find("inventoryCanvas").GetComponent<inventoryManager>();
+            inventoryManager = GameObject.Find("inventoryCanvas").GetComponent<inventoryManager>();
             Debug.Log("inventoryManager initialized: " + (inventoryManager != null));
         }
 

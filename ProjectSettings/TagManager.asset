@@ -7,10 +7,10 @@ TagManager:
   - CinemachineTarget
   - item
   - NpcArea
-  - Item
   - NPC
   - InteractArea
   - NPC2InteractArea
+  - Item
   layers:
   - Default
   - TransparentFX

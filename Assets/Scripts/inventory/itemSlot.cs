@@ -68,6 +68,16 @@ public class itemSlot : MonoBehaviour
     public void OnLeftClick()
     {
         inventoryManager.DeselectAllSlots();
+        SelectItem();
+    }
+
+    public void OnRightClick()
+    {
+        // Implement right-click functionality if needed
+    }
+
+    public void SelectItem()
+    {
         selectedShader.SetActive(true);
         thisItemSelected = true;
         ItemDescriptionNameText.text = itemName;
@@ -79,8 +89,9 @@ public class itemSlot : MonoBehaviour
         }
     }
 
-    public void OnRightClick()
+    public void DeselectItem()
     {
-        // Implement right-click functionality if needed
+        selectedShader.SetActive(false);
+        thisItemSelected = false;
     }
 }
