@@ -91,9 +91,8 @@ Başta düşünülen oyun fikrinde, zamansal endişeler ve teknik sorunlardan ö
   <img width="959" alt="image" src="https://github.com/user-attachments/assets/4c6a3acc-5500-4c56-b53f-3f3ea6e710ee">
 
   - **Ürün Durumu**: Ekran görüntüleri:
-![IMG-20240721-WA0024](https://github.com/user-attachments/assets/5567302a-a41a-4e5b-9925-9b83980e692a)
-![IMG-20240721-WA0026](https://github.com/user-attachments/assets/532a2525-cfa7-4b2f-ad2a-86b15762d43d)
-![IMG-20240721-WA0025](https://github.com/user-attachments/assets/22412349-0c24-4511-845a-b785a1f7de6c)
+<img width="544" alt="image" src="https://github.com/user-attachments/assets/ebd5fbda-b014-4c0a-96c7-572973c59549">
+<img width="959" alt="image" src="https://github.com/user-attachments/assets/dd0d81f5-793f-4ea1-bcbe-94024aa85b7a">
 
 
 - **Sprint Review**:
@@ -123,10 +122,15 @@ Başta düşünülen oyun fikrinde, zamansal endişeler ve teknik sorunlardan ö
    <img width="959" alt="image" src="https://github.com/user-attachments/assets/1bac7a46-41f6-44a9-80b8-b84e6f60da32">
 
    - **Ürün Durumu**: Ekran görüntüleri:
+    <img width="959" alt="image" src="https://github.com/user-attachments/assets/4b80929e-8dbc-4d2d-a95c-6e095088eae2">
+    <img width="596" alt="image" src="https://github.com/user-attachments/assets/39a02555-7178-4de1-a786-cb57d9870514">
+    <img width="618" alt="image" src="https://github.com/user-attachments/assets/6e0328e9-b50a-486a-a748-aa036672b628">
+
   
    - **Final Video**:
+   https://youtu.be/nR7B2pcPQf8?si=zURy2qQN-iCoCIeh
   
-   - - **Sprint Review**:
+   - **Sprint Review**:
     - Bütün ekiple beraber projeyi inceledik ve üzerinde konuştuk. Takım ruhunu koruyup Scrum boyunca özveriyle çalışıldığı için takım üyeleri birbirini tebrik etti. Tamamlanması gereken görevlerin çoğu bitti. Yetişmeyen kısımlar için ise kapsamda daraltılmaya gidildi.
     - Sprint Review katılımcıları: Sefa kılıç, Zelal Aydın, Kenan Güzel, Cemal Sezgin, Zehra Çiçek.
 
