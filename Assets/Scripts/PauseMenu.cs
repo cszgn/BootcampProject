@@ -15,14 +15,11 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            // Eðer areYouSureMenuUI veya optionsMenuUI açýksa ve Esc tuþuna basýlmýþsa
-            if (areYouSureMenuUI.activeSelf || optionsMenuUI.activeSelf || ControlsMenuUI.activeSelf) 
+            if (areYouSureMenuUI.activeSelf || optionsMenuUI.activeSelf || ControlsMenuUI.activeSelf)
             {
-                // Hiçbir þey yapma (UI kapanmasýn)
                 return;
             }
 
-            // Eðer oyun duraklatýlmýþsa
             if (GameIsPaused)
             {
                 Resume();
@@ -39,6 +36,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         GameIsPaused = true;
         Time.timeScale = 0f;
+        SetAudioSourcesIgnorePause(true);
     }
 
     public void Resume()
@@ -46,12 +44,22 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         GameIsPaused = false;
         Time.timeScale = 1f;
+        SetAudioSourcesIgnorePause(false);
     }
 
     public void GoToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1f;
+        SetAudioSourcesIgnorePause(false);
+    }
 
+    private void SetAudioSourcesIgnorePause(bool ignore)
+    {
+        AudioSource[] audioSources = FindObjectsOfType<AudioSource>();
+        foreach (AudioSource audioSource in audioSources)
+        {
+            audioSource.ignoreListenerPause = ignore;
+        }
     }
 }
