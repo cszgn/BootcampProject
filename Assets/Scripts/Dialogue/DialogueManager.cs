@@ -124,7 +124,7 @@ public class DialogueManager : MonoBehaviour
         
         }
 
-        StartCoroutine(SelectFirstChoice());
+        //StartCoroutine(SelectFirstChoice());
 
     }
 
