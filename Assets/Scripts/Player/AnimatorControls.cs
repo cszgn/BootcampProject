@@ -1,101 +1,51 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 using TMPro;
 
-public class AnimatorControls : MonoBehaviour
+namespace Player
 {
-    [SerializeField] private TextMeshProUGUI _itemInfoText;
-    [SerializeField] private LayerMask itemLayer;
-    [SerializeField] private List<ItemNotification> itemNotifications;
-
-    private inventoryManager inventoryManager;
-    public GameObject inventoryMenu;
-
-    void Start()
+    public class AnimatorControls : MonoBehaviour
     {
-        inventoryManager = GameObject.Find("inventoryCanvas").GetComponent<inventoryManager>();
-        if (inventoryManager == null)
+        [SerializeField] private TextMeshProUGUI _itemInfoText;
+
+        [SerializeField] private LayerMask itemLayer;
+        private inventoryManager inventoryManager;
+
+        void Start()
         {
-            Debug.LogError("inventoryManager could not be found on 'inventoryCanvas'.");
-        }
-        else
-        {
+            //inventoryManager = GameObject.Find("inventoryCanvas").GetComponent<inventoryManager>();
             Debug.Log("inventoryManager initialized: " + (inventoryManager != null));
         }
 
-    }
-    private void Update()
-    {
-        HandleInventoryToggle();
-        RaycastForItem();
-
-    }
-
-    void RaycastForItem()
-    {
-        if (_itemInfoText == null)
+        private void Update()
         {
-            Debug.LogError("Item info text is not assigned.");
-            return;
+            RaycastForItem();
         }
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 5f, itemLayer))
+        void RaycastForItem()
         {
-            if (hit.collider.CompareTag("Item"))
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 5f, itemLayer))
             {
-                var item = hit.collider.GetComponent<CollectibleItem>();
-                if (item != null)
+                if (hit.collider.CompareTag("Item"))
                 {
-                    _itemInfoText.text = item.itemName;
-                    if (Input.GetKeyDown(KeyCode.E))
+                    var item = hit.collider.GetComponent<Item>();
+                    if (item != null)
                     {
-                        Debug.Log("Item picked up: " + item.itemName);
-                        inventoryManager.AddItem(item.itemName, item.quantity, item.sprite, item.itemDescription);
-
-                        /*foreach (var notification in itemNotifications)
+                        _itemInfoText.text = item.itemName;
+                        if (Input.GetKeyDown(KeyCode.E))
                         {
-                            if (notification != null)
-                            {
-                                notification.ShowNotification(item);
-
-                            }
-                            else
-                            {
-                                Debug.LogError("Item notification is null.");
-                            }
+                            Debug.Log("Item picked up: " + item.itemName);
+                            inventoryManager.AddItem(item.itemName, item.quantity, item.sprite, item.itemDescription);
+                            Destroy(hit.collider.gameObject); // İtemi sahneden kaldır
                         }
-                        */
-                        Destroy(hit.collider.gameObject);
                     }
                 }
             }
-        }
-        else
-        {
-            _itemInfoText.text = "";
-        }
-    }
-    void HandleInventoryToggle()
-    {
-        if (Input.GetButtonDown("Inventory"))
-        {
-            if (inventoryMenu == null)
-            {
-                Debug.LogError("Inventory menu is not assigned.");
-                return;
-            }
-
-            if (inventoryMenu.activeSelf)
-            {
-                Time.timeScale = 1;
-                inventoryMenu.SetActive(false);
-            }
             else
             {
-                Time.timeScale = 0;
-                inventoryMenu.SetActive(true);
+                _itemInfoText.text = "";
             }
         }
     }

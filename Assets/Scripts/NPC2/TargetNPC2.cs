@@ -8,6 +8,7 @@ public class TargetNPC2 : MonoBehaviour
     private Vector2 destinationVector;
 
     private float destinationX;
+    private float destinationY;
     private float destinationZ;
 
 
@@ -26,10 +27,11 @@ public class TargetNPC2 : MonoBehaviour
 
     private void SetDestination()
     {
-        destinationX = Random.Range(-10f, 20.0f);
-        destinationZ = Random.Range(-1f, 28f);
+        destinationX = Random.Range(900.0f, 900.0f);
+        destinationY = 0.0f;
+        destinationZ = Random.Range(-820.0f, 820.0f);
 
-        destinationVector = new Vector3(destinationX, transform.position.y, destinationZ);
+        destinationVector = new Vector3(destinationX, destinationY, destinationZ);
 
         agent.SetDestination(destinationVector);
     }

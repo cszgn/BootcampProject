@@ -159,6 +159,11 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+
+            if (DialogueManager.GetInstance().dialogueIsPlaying)
+            {
+                return;
+            }
         }
 
         private void LateUpdate()
@@ -388,5 +393,19 @@ namespace StarterAssets
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
         }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            
+           if (other.transform.tag == "NPC2InteractArea")
+            {
+                
+                other.transform.parent.GetComponent<TargetNPC2>().enabled = false;
+                other.transform.parent.GetComponent<TargetNPC2>().AgentStop();
+            }
+        }
+
+       
     }
+
 }

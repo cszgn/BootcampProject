@@ -10,6 +10,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject areYouSureMenuUI; // Are you sure menüsü için referans
     public static bool GameIsPaused = false;
 
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -48,8 +49,14 @@ public class PauseMenu : MonoBehaviour
 
     public void GoToMainMenu()
     {
+<<<<<<< Updated upstream
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
 
 }
+=======
+        SceneManager.LoadScene("MainMenu");
+    }
+}
+>>>>>>> Stashed changes
