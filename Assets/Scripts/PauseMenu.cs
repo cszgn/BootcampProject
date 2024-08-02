@@ -7,12 +7,22 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuUI;
     public static bool GameIsPaused = false;
-
+    public GameObject optionsMenuUI;
+    public GameObject areYouSureMenuUI;
+    public GameObject ControlsMenuUI;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            // Eðer areYouSureMenuUI veya optionsMenuUI açýksa ve Esc tuþuna basýlmýþsa
+            if (areYouSureMenuUI.activeSelf || optionsMenuUI.activeSelf || ControlsMenuUI.activeSelf) 
+            {
+                // Hiçbir þey yapma (UI kapanmasýn)
+                return;
+            }
+
+            // Eðer oyun duraklatýlmýþsa
             if (GameIsPaused)
             {
                 Resume();
@@ -41,5 +51,7 @@ public class PauseMenu : MonoBehaviour
     public void GoToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f;
+
     }
 }
