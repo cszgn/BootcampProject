@@ -5,23 +5,32 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenuUI;
+    public GameObject pauseMenuUI;   
+    public GameObject optionsMenuUI; // Options menüsü için referans
+    public GameObject areYouSureMenuUI; // Are you sure menüsü için referans
     public static bool GameIsPaused = false;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (GameIsPaused)
+            if (optionsMenuUI.activeInHierarchy == false && areYouSureMenuUI.activeInHierarchy == false) 
             {
-                Resume();
-            }
-            else
-            {
-                Pause();
+                if (GameIsPaused)
+                {
+                    Resume();
+                }
+                else
+                {
+                    Pause();
+                }
             }
         }
+        
+
     }
+
+
 
     public void Pause()
     {
@@ -39,12 +48,8 @@ public class PauseMenu : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        Resume(); // Zaman ölçeðini sýfýrlamak için Resume metodunu çaðýrýyoruz
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
     }
 
-    private void OnDisable()
-    {
-        Time.timeScale = 1f; // Zaman ölçeðini sýfýrlayýn
-    }
 }
