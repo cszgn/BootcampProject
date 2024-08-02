@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,18 +20,14 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying)
         {
-            
-           
-                DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
-            
+       
+                DialogueManager.GetInstance().EnterDialogueMode(inkJSON);       
         }
         
     }
 
     private void OnTriggerEnter(Collider collider)
     {
-
-
        if (collider.gameObject.tag == "Player")
         {
             playerInRange = true;
