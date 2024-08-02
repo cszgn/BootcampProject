@@ -1,6 +1,7 @@
-﻿using System;
+﻿using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 namespace Player
 {
@@ -8,12 +9,19 @@ namespace Player
     {
         [SerializeField] private TextMeshProUGUI _itemInfoText;
         [SerializeField] private LayerMask itemLayer;
+        [SerializeField] private GameObject itemPickupNotification;
+        [SerializeField] private TextMeshProUGUI itemPickupText;
+        [SerializeField] private GameObject itemPhotoPanel;
+        [SerializeField] private UnityEngine.UI.Image itemPhoto;
         private inventoryManager inventoryManager;
 
         void Start()
         {
             inventoryManager = FindObjectOfType<inventoryManager>();
             Debug.Log("inventoryManager initialized: " + (inventoryManager != null));
+            itemPickupNotification.SetActive(false);
+            itemPhotoPanel.SetActive(false);
+            itemPickupText.enabled = false;
         }
 
         private void Update()
@@ -39,6 +47,7 @@ namespace Player
                             Debug.Log("Item picked up: " + item.itemName);
                             inventoryManager.AddItem(item.itemName, item.quantity, item.sprite, item.itemDescription);
                             Destroy(hit.collider.gameObject); // İtemi sahneden kaldır
+                            StartCoroutine(ShowItemPickupNotification(item));
                         }
                     }
                 }
@@ -47,6 +56,19 @@ namespace Player
             {
                 _itemInfoText.text = "";
             }
+        }
+
+        IEnumerator ShowItemPickupNotification(Item item)
+        {
+            itemPickupText.text = item.itemName + " kazanıldı!";
+            itemPickupText.enabled = true;
+            itemPhoto.sprite = item.sprite;
+            itemPickupNotification.SetActive(true);
+            itemPhotoPanel.SetActive(true);
+            yield return new WaitForSeconds(3f);
+            itemPickupNotification.SetActive(false);
+            itemPhotoPanel.SetActive(false);
+            itemPickupText.enabled = false;
         }
     }
 }

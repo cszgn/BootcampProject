@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +5,7 @@ using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class itemSlot : MonoBehaviour
+public class itemSlot : MonoBehaviour, IPointerClickHandler
 {
     // item Data
     public string itemName;
@@ -47,7 +46,8 @@ public class itemSlot : MonoBehaviour
         quantityText.enabled = true;
 
         // Update UI image for item
-        itemImage.sprite = itemSprite; 
+        itemImage.sprite = itemSprite;
+        itemImage.enabled = true;
 
         Debug.Log("Adding item: " + this.itemName + ", quantity: " + this.quantity + ", sprite: " + this.itemSprite);
         Debug.Log("itemImage.sprite: " + itemImage.sprite);

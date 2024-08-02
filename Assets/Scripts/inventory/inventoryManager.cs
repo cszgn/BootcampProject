@@ -1,24 +1,29 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class inventoryManager : MonoBehaviour
 {
     public GameObject InventoryMenu;
     private bool menuActivated;
-    public itemSlot[] itemSlot;
-    
-    
-    
-    // Start is called before the first frame update
+    public itemSlot[] itemSlots;
+
     void Start()
     {
-       
+        // Check if itemSlots array is populated
+        itemSlots = GetComponentsInChildren<itemSlot>();
+        Debug.Log("itemSlots array length: " + itemSlots.Length);
+
+        if (itemSlots.Length == 0)
+        {
+            Debug.LogError("itemSlots array is empty. Ensure itemSlot objects are children of the inventoryManager.");
+        }
+        else
+        {
+            Debug.Log("itemSlots array initialized with " + itemSlots.Length + " slots.");
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("Inventory") && menuActivated)
@@ -37,11 +42,11 @@ public class inventoryManager : MonoBehaviour
 
     public void AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription)
     {
-        for (int i = 0; i < itemSlot.Length; i++) 
+        for (int i = 0; i < itemSlots.Length; i++)
         {
-            if (itemSlot[i].isFull == false)
+            if (!itemSlots[i].isFull)
             {
-                itemSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription);
+                itemSlots[i].AddItem(itemName, quantity, itemSprite, itemDescription);
                 Debug.Log("Item added to slot " + i + ": " + itemName);
                 return;
             }
@@ -49,15 +54,12 @@ public class inventoryManager : MonoBehaviour
         Debug.Log("No empty slot found for item: " + itemName);
     }
 
-    
     public void DeselectAllSlots()
     {
-        for (int i = 0; i < itemSlot.Length; i++)
+        for (int i = 0; i < itemSlots.Length; i++)
         {
-            itemSlot[i].selectedShader.SetActive(false);
-            itemSlot[i].thisItemSelected = false;   
+            itemSlots[i].selectedShader.SetActive(false);
+            itemSlots[i].thisItemSelected = false;
         }
     }
-    
-    
 }
