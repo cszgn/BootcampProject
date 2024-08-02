@@ -11596,7 +11596,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "W,A,S,D: Movement\n\nSpace: Jump\n\nE: Interact\n\nM: Open Inventory /
-    Close Inventory\n\nTab: Select Killer \n\nESC: Pause Game\n\n\t"
+    Close Inventory\n\nM: Select K\u0131ller\n\nESC: Pause Game\n\n\t"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7dad6c05cb218c74082b533c75418060, type: 2}
   m_sharedMaterial: {fileID: -7319981806457317359, guid: 7dad6c05cb218c74082b533c75418060, type: 2}
