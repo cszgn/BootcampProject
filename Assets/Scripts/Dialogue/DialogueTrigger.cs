@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    [Header("VisualCue")]
-    [SerializeField] private GameObject visualCue;
 
     [Header("Ink JSON")]
     [SerializeField] private TextAsset inkJSON;
@@ -16,23 +14,19 @@ public class DialogueTrigger : MonoBehaviour
     private void Awake()
     {
         playerInRange = false;
-        visualCue.SetActive(false);
     }
 
     private void Update()
     {
-        if (playerInRange)
+        if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying)
         {
-            visualCue.SetActive(true);
+            
             if (InputManagerEntry.GetInstance().GetInteractPressed())
             {
                 DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
             }
         }
-        else
-        {
-            visualCue.SetActive(false);
-        }
+        
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -43,7 +37,7 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider collider)
     {
         if (GetComponent<Collider>().gameObject.tag == "Player")
         {

@@ -154,6 +154,11 @@ namespace StarterAssets
 
         private void Update()
         {
+            if (DialogueManager.GetInstance().dialogueIsPlaying)
+            {
+                return;
+            }
+
             _hasAnimator = TryGetComponent(out _animator);
 
             JumpAndGravity();
