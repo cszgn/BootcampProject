@@ -390,17 +390,6 @@ namespace StarterAssets
             }
         }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            
-           if (other.transform.tag == "NPC2InteractArea")
-            {
-                
-                other.transform.parent.GetComponent<TargetNPC2>().enabled = false;
-                other.transform.parent.GetComponent<TargetNPC2>().AgentStop();
-            }
-        }
-
        
     }
 
