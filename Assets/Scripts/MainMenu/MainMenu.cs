@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
     }
     public void Play()
     {
-        SceneManager.LoadScene("Playground");
+        SceneManager.LoadScene("Slavica Free");
     }
 
     public void Quit()
