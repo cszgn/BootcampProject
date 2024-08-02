@@ -7,13 +7,12 @@ namespace Player
     public class AnimatorControls : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI _itemInfoText;
-
         [SerializeField] private LayerMask itemLayer;
         private inventoryManager inventoryManager;
 
         void Start()
         {
-            //inventoryManager = GameObject.Find("inventoryCanvas").GetComponent<inventoryManager>();
+            inventoryManager = FindObjectOfType<inventoryManager>();
             Debug.Log("inventoryManager initialized: " + (inventoryManager != null));
         }
 
@@ -24,7 +23,8 @@ namespace Player
 
         void RaycastForItem()
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Vector3 screenCenter = new Vector3(Screen.width / 2, Screen.height / 2, 0);
+            Ray ray = Camera.main.ScreenPointToRay(screenCenter);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 5f, itemLayer))
             {

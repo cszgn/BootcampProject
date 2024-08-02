@@ -6,5 +6,5 @@ public class CollectibleItem : MonoBehaviour
     public int quantity;
     public Sprite sprite;
     public string itemDescription;
-    public ItemNotification itemNotification; // Item notification reference
+    //public ItemNotification itemNotification; // Item notification reference
 }

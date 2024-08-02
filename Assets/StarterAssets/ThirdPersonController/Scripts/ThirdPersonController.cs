@@ -160,10 +160,6 @@ namespace StarterAssets
             GroundedCheck();
             Move();
 
-            if (DialogueManager.GetInstance().dialogueIsPlaying)
-            {
-                return;
-            }
         }
 
         private void LateUpdate()

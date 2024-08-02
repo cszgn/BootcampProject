@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MenuAnimationScript : MonoBehaviour
 {
-    private Animator animator;
+  private Animator animator;
 
     private void Start()
     {

@@ -5,9 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenuUI;   
-    public GameObject optionsMenuUI; // Options menüsü için referans
-    public GameObject areYouSureMenuUI; // Are you sure menüsü için referans
+    public GameObject pauseMenuUI;
     public static bool GameIsPaused = false;
 
 
@@ -15,23 +13,16 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (optionsMenuUI.activeInHierarchy == false && areYouSureMenuUI.activeInHierarchy == false) 
+            if (GameIsPaused)
             {
-                if (GameIsPaused)
-                {
-                    Resume();
-                }
-                else
-                {
-                    Pause();
-                }
+                Resume();
+            }
+            else
+            {
+                Pause();
             }
         }
-        
-
     }
-
-
 
     public void Pause()
     {
@@ -49,14 +40,6 @@ public class PauseMenu : MonoBehaviour
 
     public void GoToMainMenu()
     {
-<<<<<<< Updated upstream
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
-    }
-
-}
-=======
         SceneManager.LoadScene("MainMenu");
     }
 }
->>>>>>> Stashed changes
