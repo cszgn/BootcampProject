@@ -104,3 +104,33 @@ Başta düşünülen oyun fikrinde, zamansal endişeler ve teknik sorunlardan ö
     - Takım üyelerinin gelecek sprintte daha fazla görev alınması gerektiğine ve deadlineların kısaltılmasına karar verildi.
  
 ---
+
+# Sprint 3
+- **Sprint Notları:** Takım olarak proje yönetiminde Jira kullanımına devam edilmektedir. User Story'ler ve görevler product backlog'ların içine yazılmıştır.
+
+- **Sprint içinde tamamlanması tahmin edilen puan:** 137 Puan
+
+-	**Puan tamamlama mantığı:** Proje boyunca toplam tamamlanması gereken 316 puanlık bir backlog bulunmaktadır. 2. sprintte tamamlanması gereken 100 puanın 100 puanı tamamlanmış olup 3. sprintte 137 puanın tamamlanmasına karar verilmiştir.
+
+-	**Backlog düzeni ve story seçimleri:** Backlog'umuz ilk yapılacak story'lere göre düzenlenmiştir. User storyler için görevler atanmıştır ve her bir göreve hedef puan verilmiştir. Bu puanlar hedeflenen puan sayısını geçmeyecek şekilde düzenlenmiştir.
+
+-	**Daily Scrum:** Daily Scrum toplantıları hem Whatsapp üzerinden hem de Discord üzerinden devam etmiştir. Discord'da haftada birkaç gün toplantılar yapılmıştır. Daily Scrum toplantısı örnekleri Word dosyasından pdf’e çevrilerek Readme'de tarafımızdan paylaşılmaktadır.
+
+-	- **Toplantı ve Whatsapp ScreenShotları**:
+    [screenShoots.pdf](https://github.com/user-attachments/files/16468603/screenShoots.pdf)
+
+ - **Sprint board update**: Sprint board screenshotları:
+   <img width="959" alt="image" src="https://github.com/user-attachments/assets/1bac7a46-41f6-44a9-80b8-b84e6f60da32">
+
+   - **Ürün Durumu**: Ekran görüntüleri:
+  
+   - **Final Video**:
+  
+   - - **Sprint Review**:
+    - Bütün ekiple beraber projeyi inceledik ve üzerinde konuştuk. Takım ruhunu koruyup Scrum boyunca özveriyle çalışıldığı için takım üyeleri birbirini tebrik etti. Tamamlanması gereken görevlerin çoğu bitti. Yetişmeyen kısımlar için ise kapsamda daraltılmaya gidildi.
+    - Sprint Review katılımcıları: Sefa kılıç, Zelal Aydın, Kenan Güzel, Cemal Sezgin, Zehra Çiçek.
+
+- **Sprint Retrospective:**
+    - Gelecek projelerde iletişimde kalınacağına dair konuşmalar yapıldı.
+ 
+---
